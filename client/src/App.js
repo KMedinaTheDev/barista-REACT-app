@@ -1,29 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Orders from './Orders/Orders.js';
 
 class App extends Component {
-  state = {users:[]}
-
-  componentDidMount(){
-    fetch('/api/orders',{
-      headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(users => this.setState({ users }));
-  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Users</h1>
-        </header>
-        {this.state.users.map(user =>
-            <div key={user.username}> {user.name} {user.order} {user.size} {user.cream} {user.milk} {user.sugar}</div>
-          )}
+      <div>
+        <Orders color='rgb(117, 63, 51)' width= "300px" fontsize= "24px"></Orders>
       </div>
     );
   }
